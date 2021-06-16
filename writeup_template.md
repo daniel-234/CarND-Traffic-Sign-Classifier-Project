@@ -23,12 +23,7 @@ The goals / steps of this project are the following:
 [image1]: ./examples/visualization.jpg "Visualization"
 [image2]: ./examples/traffic_sign_example.jpg "Example"
 [image3]: ./examples/grayed_traffic_sign_example.jpg "Grayscaling"
-[image4]: ./examples/random_noise.jpg "Random Noise"
-[image5]: ./examples/placeholder.png "Traffic Sign 1"
-[image6]: ./examples/placeholder.png "Traffic Sign 2"
-[image7]: ./examples/placeholder.png "Traffic Sign 3"
-[image8]: ./examples/placeholder.png "Traffic Sign 4"
-[image9]: ./examples/placeholder.png "Traffic Sign 5"
+[image4]: ./german_traffic_signs_resized/signs.jpg "Traffic Signs"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -104,7 +99,7 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used 20 epochs and a batch size of 128. 
+To train the model, I used 40 epochs and a batch size of 128. 
 The Loss function I used is the Cross-entropy loss function and as optimizer I used the Adam optimizer. 
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
@@ -129,12 +124,11 @@ If a well known architecture was chosen:
 
 ### Test a Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose at least five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are ten German traffic signs that I found on the web:
 
-![alt text][image5] ![alt text][image6] ![alt text][image7] 
-![alt text][image8] ![alt text][image9]
+![alt text][image4]
 
 The first image might be difficult to classify because ...
 
@@ -181,3 +175,9 @@ For the second image ...
 [Using grayscale images for object recognition with convolutional-recursive neural networks](https://ieeexplore.ieee.org/document/7562656)
 
 [Average grayscale from RGB image in Python](https://stackoverflow.com/questions/26201839/average-grayscale-from-rgb-image-in-python)
+
+[Importing image data into Numpy arrays](https://www.pluralsight.com/guides/importing-image-data-into-numpy-arrays)
+
+[Iterate through folder with Pillow to open images](#https://stackoverflow.com/questions/51178166/iterate-through-folder-with-pillow-image-open)
+
+[How to create a 4D Tensor from images](https://stackoverflow.com/questions/50195967/how-can-i-create-a-4d-numpy-array-from-images)
