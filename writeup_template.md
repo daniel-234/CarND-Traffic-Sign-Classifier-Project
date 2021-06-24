@@ -152,9 +152,10 @@ The results on validation (0.935) and test sets (0.933) were very satisfying.
 
 Here are ten German traffic signs that I found on the web:
 
-![alt text][image4]
+![alt text][image6]
 
-The first image might be difficult to classify because ...
+At first size the images I found shouldn't be difficult to classify, because they are in plain light and they occupy the majority of the space in the image. 
+The first image is oriented sideways while the second upwards. Images 5, 6, 9, 10 have a background different from the blue sky. Images 3 and 4 appear to be quite clear, while images 7 and 8 seem a bit pixelated from the format conversion I applied (to have them all 32x32 in size). 
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -162,31 +163,76 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
 | Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Turn right ahead      		| Turn right ahead   									| 
+| No entry     			| No entry 										|
+| Double curve					| Children crossing											|
+| General caution					| General caution											|
+| 70 km/h	      		| 70 km/h					 				|
+| Road work			| Slippery Road      							|
+| Roundabout mandatory			| Roundabout mandatory      							|
+| Keep right			| Keep right      							|
+| Children crossing			| General caution      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 7 of the 10 traffic signs, which gives an accuracy of 70%. This is slightly less than the accuracy on the test set of 93%. 
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the ten new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 31th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first, second, third, fifth, sixth and ninth images, the probability is 1.0, meaning the model is absolutely confident that the image contains a certain sign, that is indeed the right sign in the image. 
+These signs, predicted with probability 1.0, are the following:
+
+| Image number |    Prediction    |   Probability   |
+| :----------: |    :--------:    |   :---------:   |
+|      1       |      Yield       |     1.0     |
+|      2       |   Turn right ahead    |     1.0     |
+|      3       |   No entry    |     1.0     |
+|      5       |   General caution    |     1.0     |
+|      6       |   Speed limit (70km/h)    |     1.0     |
+|      9       |   Keep right   |     1.0     |
+
+For the fourth image, the model is confident that this is a Children Crossing sign (probability of 0.034), but the image contains a Double Curve sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| .934         			| Children crossing   									| 
+| .065     				| Right-of-way at the next intersection 										|
+| .0003					| General caution											|
+| .0003	      			| Dangerous curve to the right					 				|
+| .0003				    | Bumpy road      							|
 
 
-For the second image ... 
+For the seventh image, the model is confident that this is a Slippery Road sign (probability of 0.99), but the image contains a Road Work sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| Slippery road   									| 
+| < .001     				| Wild animals crossing intersection 										|
+| < .001				| Double curve											|
+| < .001	      			| Dangerous curve to the right					 				|
+| < .001				    | Road narrows on the right      							|
+
+For the eighth image, the model is confident that this is a Roundabout Mandatory sign (probability of 0.99), and the image does contain a Roundabout Mandatory sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| Roundabout mandatory   									| 
+| .0005     				| Dangerous curve to the right intersection 										|
+| .0004					| Right-of-way at the next intersection										|
+| < .0001	      			| Children crossing					 				|
+| < .0001				    | Speed limit (100km/h)      							|
+
+For the tenth image, the model is confident that this is a General caution sign (probability of 0.99), but the image contains a Children crossing sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| General caution   									| 
+| 0.005     				| Children crossing 										|
+| < .0001					| Bicycles crossing											|
+| < .0001	      			| Priority road					 				|
+| < .0001				    | No passing      							|
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
