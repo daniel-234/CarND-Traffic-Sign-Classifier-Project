@@ -15,6 +15,11 @@ To meet specifications, the project will require submitting three files:
 * the code exported as an html file
 * a writeup report either as a markdown or pdf file 
 
+View the project
+---
+
+Open the [IPython notebook](https://github.com/daniel-234/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb) and read the [project writeup](https://github.com/daniel-234/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_template.md).
+
 Creating a Great Writeup
 ---
 A great writeup should include the [rubric points](https://review.udacity.com/#!/rubrics/481/view) as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
