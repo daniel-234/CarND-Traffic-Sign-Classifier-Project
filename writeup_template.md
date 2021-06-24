@@ -237,6 +237,18 @@ For the tenth image, the model is confident that this is a General caution sign 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
+I chose to visualize the feature maps for the 4th image, one of the three that were misclassified. 
+It isn't really clear which characteristics made the model output the wrong prediction. It seems that looking at the feature maps from the first convolution, the sign edges were extracted together with the sign shape. 
+The second part of the feature maps does not provide a clear interpretation. 
+
+In regard of classification accuracy, I noticed that the most misclassified images were in the classes from 15 to 40. By looking at the distribution of classes in the first image of this writeup, you can see that these classes had approximately half the data of the first ones. By expanding the dataset, it made things even worse in terms of classes distribution. 
+A solution could be to augment the portion of the dataset that is downsampled. 
+
+I believe that the double curve sign is also heavily underrepresented in the dataset. Another thing is that maybe mostly one type of double curve sign has been provided: I saw a lot of signs on the web that mirrored this one (first curve on the left, than on the right instead of first on the right then on the left). 
+One solution could be to mirror all the images belonging only to class 21 (Double curve) to have a more robust dataset and train it properly on both types of double curves. This would also double the number of images for this class, which could help. 
+Clearly most signs can't be mirrored left to right. 
+
+
 
 ### Credits
 
