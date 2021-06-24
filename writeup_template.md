@@ -232,9 +232,10 @@ The second part of the feature maps does not provide a clear interpretation.
 In regard to classification accuracy, I noticed that the most misclassified images were in the classes from 15 to 40. By looking at the distribution of classes in the first image of this writeup, you can see that these classes had approximately half the data of the first ones. By expanding the dataset, it made things even worse in terms of classes distribution. 
 A solution could be to augment the portion of the dataset that is downsampled. 
 
-I believe that the double curve sign is also heavily underrepresented in the dataset. Another thing is that maybe mostly one type of double curve sign has been provided: I saw a lot of signs on the web that mirrored this one (first curve on the left, than on the right instead of first on the right then on the left). 
-One solution could be to mirror all the images belonging only to class 21 (Double curve) to have a more robust dataset and train it properly on both types of double curves. This would also double the number of images for this class, which could help. 
-Clearly most signs can't be mirrored left to right. 
+I believe that the double curve sign is also heavily underrepresented in the dataset.  
+Also it is not clear if German signs contemplate two different representations for the Double curve: 1) first curve on the left, second curve on the right; 2) first on the right followed by second curve on the left. 
+The training dataset should be checked to verify it. In case there was such a problem, one solution could be to mirror all the images belonging only to class 21 (Double curve) to have a more robust dataset and train it properly on both types of double curves. This would also double the number of images for this class, which could help. 
+Clearly most other signs can't be mirrored left to right. 
 
 
 
