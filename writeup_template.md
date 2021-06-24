@@ -116,15 +116,15 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used 10 epochs and a batch size of 128. 
+To train the model, I used 20 epochs and a batch size of 128. 
 The Loss function I used is the Cross-entropy loss function and as optimizer I used the Adam optimizer. 
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.998
+* validation set accuracy of 0.935 
+* test set accuracy of 0.933
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -137,7 +137,14 @@ If a well known architecture was chosen:
 * What architecture was chosen?
 * Why did you believe it would be relevant to the traffic sign application?
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+
+The architecture that was chosen was LeNet-5, the same that was implemented in the class labs. 
+
+I believed it would be relevant to the traffic sign application because although it is more than 20 years old, it was very successful when presented for the recognition of handwritten characters. Even if the data for this project is quite different, I thought the analysis could benefit from a similar approach. This architecture is also very popular because of its simplicity. 
+While working on this project, I tweaked the architecture trying to add Dropout layers, but noticed that the results didn't improve. Sometimes they even got worse. So my choice for the final implementation of the project was to use it as it is. 
  
+The final results on accuracy after 20 epochs, as reported above , showed that the model trained well without overfitting on the training data. 
+The results on validation (0.935) and test sets (0.933) were very satisfying. 
 
 ### Test a Model on New Images
 
