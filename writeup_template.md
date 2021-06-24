@@ -23,7 +23,9 @@ The goals / steps of this project are the following:
 [image1]: ./examples/visualization.jpg "Visualization"
 [image2]: ./examples/traffic_sign_example.jpg "Example"
 [image3]: ./examples/grayed_traffic_sign_example.jpg "Grayscaling"
-[image4]: ./german_traffic_signs_resized/signs.jpg "Traffic Signs"
+[image4]: ./examples/rotated_traffic_sign_example.jpg "Rotation"
+[image5]: ./examples/translated_traffic_sign_example.jpg "Translation"
+[image6]: ./german_traffic_signs_resized/signs.jpg "Traffic Signs"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -50,7 +52,7 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data is distributed among the 43 classes in the training, vlidation and test set. 
+Here is an exploratory visualization of the data set. It is a bar chart showing how the data is distributed among the 43 classes in the training, validation and test set. 
 
 ![alt text][image1]
 
@@ -62,16 +64,31 @@ Here is a plot of a random signal from the training dataset.
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because [experimental results](https://ieeexplore.ieee.org/document/7562656) showed that when color in images is not an essential feature, classification with grayscale images results in higher accuracy than with RGB images with the advantage of reduced computational cost. 
+As a first step, I decided to convert the images to grayscale because [experimental results](https://ieeexplore.ieee.org/document/7562656) in similar deep learning tasks showed that when color in images is not an essential feature, classification with grayscale images reaches higher accuracy in comparison with training with RGB images. This color downscaling also comes with the advantage of reduced computational costs. 
 
-As a last step, I normalized the image data because it is a good practice to scale the pixel values so that each pixel has a value between a small range (from -1 to 1 here, but another common range is 0-1). 
-This is because for most image data, the pixel values are integers with values between 0 and 255. Neural networks, though, process inputs using small weight values and inputs with large integer values can disrupt or slow down the learning process. 
-Images with values in the new range can be viewed normally. 
+Then I normalized the image data because it is a good practice to scale the pixel values so that each pixel falls in a small range of values (from -1 to 1 here, but another common range is 0 to 1). 
+This is because for most image data, the pixel values are integers between 0 and 255. Neural networks, though, process inputs using small weight values. Accordingly, inputs with large integer values can disrupt or slow down the learning process. 
+It should also be noted that images with values in the new range can be viewed normally. 
 
-Here is an example of a traffic sign image before and after grayscaling and normalization.
+Here is the image of the same traffic sign before and after normalization and grayscaling.
 
 ![alt text][image3]
 
+As pointed out in [an article by Pierre Sermant and Yann LeCun](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), the dataset provided by GTSRB presents a number of difficult challenges due to real-world variabilities such as viewpoint variations, physical damage, color fading and low input resolution. 
+I tried some of the techniques they suggested to address some of these challenges and built a jittered dataset by adding transformed versions of the original one.
+
+So first I generated a transformed version of the training dataset by rotating each image by a random angle between -15 and +15 degrees. This dataset was added to the original one, thus making a training dataset that was twice in size than before. 
+
+Here is an example of the same traffic sign image  after a random rotation was applied.
+
+![alt text][image4]
+
+Then I generated another transformed version of the training dataset by shifting each image randomly by [-2, +2] pixels and added it to the original one. 
+The resulting training dataset now yields 139196 samples.
+
+Here is an example of the same traffic sign image  after a random translation was applied.
+
+![alt text][image5]
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -99,7 +116,7 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used 40 epochs and a batch size of 128. 
+To train the model, I used 10 epochs and a batch size of 128. 
 The Loss function I used is the Cross-entropy loss function and as optimizer I used the Adam optimizer. 
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
