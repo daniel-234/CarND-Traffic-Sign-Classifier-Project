@@ -181,7 +181,7 @@ These signs, predicted with probability 1.0, are the following:
 |      6       |   Speed limit (70km/h)    |     1.0     |
 |      9       |   Keep right   |     1.0     |
 
-For the fourth image, the model is confident that this is a Children Crossing sign (probability of 0.034), but the image contains a Double Curve sign. The top five soft max probabilities were
+For the fourth image, the model is confident that this is a Children Crossing sign (probability of 0.034), but the image contains instead a Double Curve sign. The top five softmax probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -192,7 +192,7 @@ For the fourth image, the model is confident that this is a Children Crossing si
 | .0003				    | Bumpy road      							|
 
 
-For the seventh image, the model is confident that this is a Slippery Road sign (probability of 0.99), but the image contains a Road Work sign. The top five soft max probabilities were
+For the seventh image, the model is confident that this is a Slippery Road sign (probability of 0.99), but the image contains instead a Road Work sign. The top five softmax probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -202,7 +202,7 @@ For the seventh image, the model is confident that this is a Slippery Road sign 
 | < .001	      			| Dangerous curve to the right					 				|
 | < .001				    | Road narrows on the right      							|
 
-For the eighth image, the model is confident that this is a Roundabout Mandatory sign (probability of 0.99), and the image does contain a Roundabout Mandatory sign. The top five soft max probabilities were
+For the eighth image, the model is confident that this is a Roundabout Mandatory sign (probability of 0.99), and the image does indeed contain a Roundabout Mandatory sign. The top five softmax probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -212,7 +212,7 @@ For the eighth image, the model is confident that this is a Roundabout Mandatory
 | < .0001	      			| Children crossing					 				|
 | < .0001				    | Speed limit (100km/h)      							|
 
-For the tenth image, the model is confident that this is a General caution sign (probability of 0.99), but the image contains a Children crossing sign. The top five soft max probabilities were
+For the tenth image, the model is confident that this is a General caution sign (probability of 0.99), but the image contains instead a Children crossing sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -229,7 +229,7 @@ I chose to visualize the feature maps for the 4th image, one of the three that w
 It isn't really clear which characteristics made the model output the wrong prediction. It seems that looking at the feature maps from the first convolution, the sign edges were extracted together with the sign shape. 
 The second part of the feature maps does not provide a clear interpretation. 
 
-In regard of classification accuracy, I noticed that the most misclassified images were in the classes from 15 to 40. By looking at the distribution of classes in the first image of this writeup, you can see that these classes had approximately half the data of the first ones. By expanding the dataset, it made things even worse in terms of classes distribution. 
+In regard to classification accuracy, I noticed that the most misclassified images were in the classes from 15 to 40. By looking at the distribution of classes in the first image of this writeup, you can see that these classes had approximately half the data of the first ones. By expanding the dataset, it made things even worse in terms of classes distribution. 
 A solution could be to augment the portion of the dataset that is downsampled. 
 
 I believe that the double curve sign is also heavily underrepresented in the dataset. Another thing is that maybe mostly one type of double curve sign has been provided: I saw a lot of signs on the web that mirrored this one (first curve on the left, than on the right instead of first on the right then on the left). 
